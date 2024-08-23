@@ -141,18 +141,9 @@ class TodoList
     done!
   end
 
-  def mark_all_undone
+  def mark_all_undone # returns TodoList object
     each { |todo| todo.undone! }
   end
-
-  # def ==(other)
-  #   title == other.title &&
-  #     @todos == other.todos
-  # end
-
-  # protected
-
-  # attr_reader :todos
 
   private
 
@@ -160,3 +151,16 @@ class TodoList
     item.class != Todo
   end
 end
+
+todo1 = Todo.new("Buy milk")
+todo2 = Todo.new("Clean room")
+todo3 = Todo.new("Go to gym")
+todos = [todo1, todo2, todo3]
+
+list = TodoList.new("Today's Todos")
+list.add(todo1)
+list.add(todo2)
+list.add(todo3)
+
+list.mark_all_done
+p list.mark_all_undone
